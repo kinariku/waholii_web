@@ -1,0 +1,471 @@
+/* Waholii - desktop first, simple layout */
+
+:root {
+  /* メインブランドカラーを 3F9EB2 系に統一 */
+  --color-teal: #3f9eb2;
+  --color-teal-dark: #2f7c8f;
+  --color-orange: #f5a45a;
+  --color-text-main: #444444;
+  --color-text-muted: #777777;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Helvetica Neue", Arial, sans-serif;
+  color: var(--color-text-main);
+  /* 全体の背景色を FEFBF8 に統一 */
+  background: #fefbf8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Layout shell */
+
+.waholii-page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.waholii-main {
+  flex: 1;
+  padding: 0;
+}
+
+.waholii-main-inner {
+  width: 100%;
+  max-width: 1728px; /* main image max width */
+  margin: 0 auto;
+}
+
+/* Header */
+
+.waholii-header-bar {
+  background: var(--color-teal);
+  color: #ffffff;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 常設メッセージより少し控えめに */
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.waholii-nav-row {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.waholii-nav-inner {
+  max-width: 1728px;
+  margin: 0 auto;
+  height: 70px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  /* 左にロゴ、右側にボタン */
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.waholii-nav-link {
+  position: relative;
+  color: #777777;
+}
+
+.waholii-nav-link.is-active,
+.waholii-nav-link:hover {
+  color: var(--color-teal);
+}
+
+.waholii-nav-status {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.waholii-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.waholii-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: var(--color-teal);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.waholii-nav-cta:hover {
+  background: var(--color-teal-dark);
+}
+
+.waholii-search-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 2px solid var(--color-text-muted);
+  position: relative;
+}
+
+.waholii-search-icon::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-text-muted);
+  transform: rotate(45deg);
+  right: -4px;
+  bottom: -1px;
+}
+
+/* Hero image */
+
+.waholii-hero-full {
+  margin: 0;
+  padding: 0;
+  height: 400px; /* fixed hero height */
+}
+
+.waholii-hero-full-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sections */
+
+.waholii-section {
+  padding: 32px 32px;
+}
+
+.waholii-section-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-teal);
+  margin: 0 0 8px;
+  text-align: left;
+}
+
+.waholii-section-subtitle {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin: 0 0 16px;
+}
+
+.waholii-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.waholii-card {
+  padding: 8px 0;
+}
+
+.waholii-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.waholii-card-text {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.waholii-icon-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.waholii-icon-circle img {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+/* Footer */
+
+.waholii-footer {
+  background: #3f9eb2;
+  color: #ffffff;
+  font-size: 11px;
+}
+
+.waholii-footer-inner {
+  max-width: 1728px;
+  margin: 0 auto;
+  padding: 20px 32px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.waholii-footer-logo {
+  width: 80px;
+  height: auto;
+  display: block;
+}
+
+.waholii-footer-copy {
+  opacity: 0.9;
+}
+
+.waholii-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.waholii-footer-meta {
+  display: flex;
+  flex-direction: column; /* ロゴの下でテキストとリンクを縦並びに */
+  align-items: center;
+  gap: 4px;
+}
+
+.waholii-footer-note {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.waholii-footer-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.waholii-footer-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-teal);
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* Article list cards */
+
+.waholii-article-grid {
+  display: grid;
+  /* デスクトップでは最大 4 列 */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .waholii-article-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .waholii-article-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .waholii-article-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* トップページの記事一覧だけ、画面幅ごとに表示件数を調整する */
+
+/* デフォルト（4列時）: 最大 8 件そのまま表示 */
+
+@media (max-width: 1200px) {
+  /* 3列 / 2列時: 先頭 6 件だけ表示 */
+  #articles .waholii-article-card:nth-child(n + 7) {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  /* 1列時: 先頭 4 件だけ表示 */
+  #articles .waholii-article-card:nth-child(n + 5) {
+    display: none;
+  }
+}
+
+.waholii-article-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.waholii-article-thumb {
+  width: 100%;
+  /* 画像本来の比率を保ったまま表示する */
+  height: auto;
+  display: block;
+}
+
+.waholii-article-body {
+  padding: 16px 18px 18px;
+}
+
+.waholii-article-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.waholii-article-meta {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin: 0 0 8px;
+}
+
+.waholii-article-excerpt {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.waholii-article-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--color-teal);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.waholii-article-link:hover {
+  background: var(--color-teal-dark);
+}
+
+/* Contact セクション内のボタンは少し大きめに */
+#contact .waholii-article-link {
+  padding: 10px 24px;
+  font-size: 14px;
+}
+
+.waholii-article-more-wrap {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.waholii-article-more-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  /* アウトラインボタン */
+  border: 2px solid var(--color-teal);
+  color: var(--color-teal);
+  background: transparent;
+}
+
+.waholii-article-more-btn:hover {
+  background: var(--color-teal);
+  color: #ffffff;
+}
+
+/* Interview / Community cards */
+
+.waholii-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .waholii-contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.waholii-contact-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  padding: 24px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.waholii-contact-card .waholii-card-title {
+  margin-bottom: 4px;
+}
+
+.waholii-contact-card .waholii-card-text {
+  margin-bottom: 6px;
+}
+
+.waholii-contact-card .waholii-article-link {
+  margin-top: 4px;
+}
+
+.waholii-contact-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.waholii-badge-muted {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(63, 158, 178, 0.12);
+  border: 1px solid #3f9eb2;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #3f9eb2;
+  text-transform: uppercase;
+}

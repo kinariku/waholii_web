@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout current="contact" title="Contact">
+  <section class="waholii-section">
+    <div class="waholii-section-inner">
+      <h1 class="waholii-page-title">Contact</h1>
+      <p class="waholii-page-subtitle">
+        実体験インタビューへの参加や、ワーホリに関する相談をご希望の方は、以下のフォームからご連絡ください。
+      </p>
+      <div class="waholii-two-column">
+        <div>
+          <form
+            class="waholii-body-text"
+            action="https://docs.google.com/forms/d/e/1FAIpQLSd-example-form/viewform"
+            method="get"
+            target="_blank"
+          >
+            <p>※ 現時点ではサンプルの Google Form へのリンクになっています。</p>
+            <p>
+              本番では、あなたが作成した Google Form / Typeform の URL に差し替えてください。
+            </p>
+            <button type="submit" class="waholii-btn waholii-btn--primary">
+              インタビュー申し込みフォームを開く
+            </button>
+          </form>
+        </div>
+        <div class="waholii-body-text">
+          <p>フォームに含めるとよい項目例:</p>
+          <ul>
+            <li>お名前（ニックネーム可）</li>
+            <li>メールアドレス</li>
+            <li>渡航予定の国／都市</li>
+            <li>渡航予定時期</li>
+            <li>インタビュー参加の理由・聞きたいこと</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

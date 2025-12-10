@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { fetchNoteArticles } from "../lib/noteFeed";
+
+// トップページでは最大 8 件（デスクトップで 4 列 x 2 行）を表示
+const articles = await fetchNoteArticles(8);
+---
+
+<BaseLayout
+  current="home"
+  description="ワーホリ生活のスタート地点をつくる Waholii の公式サイト"
+>
+  <section class="waholii-hero-full">
+    <img
+      src="/hero_main.svg"
+      alt="Waholii hero illustration"
+      class="waholii-hero-full-image"
+      loading="lazy"
+    />
+  </section>
+
+  <section id="articles" class="waholii-section">
+    <div class="waholii-section-inner">
+      <h2 class="waholii-section-title">記事一覧</h2>
+      <p class="waholii-section-subtitle">
+        Note の最新記事からピックアップして表示しています。
+      </p>
+      <div class="waholii-article-grid">
+        {articles.map((article) => (
+          <article class="waholii-article-card">
+            {article.thumbnail && (
+              <a href={article.link} target="_blank" rel="noreferrer">
+                <img
+                  src={article.thumbnail}
+                  alt={article.title}
+                  class="waholii-article-thumb"
+                  loading="lazy"
+                />
+              </a>
+            )}
+            <div class="waholii-article-body">
+              <h3 class="waholii-article-title">{article.title}</h3>
+              {article.pubDate && (
+                <p class="waholii-article-meta">{article.pubDate}</p>
+              )}
+              {article.excerpt && (
+                <p class="waholii-article-excerpt">{article.excerpt}</p>
+              )}
+              <a
+                href={article.link}
+                target="_blank"
+                rel="noreferrer"
+                class="waholii-article-link"
+              >
+                記事を読む
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="waholii-article-more-wrap">
+        <a href="/note" class="waholii-article-more-btn">すべての記事を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="waholii-section">
+    <div class="waholii-section-inner">
+      <h2 class="waholii-section-title">インタビュー / コミュニティ への参加</h2>
+      <p class="waholii-section-subtitle">
+        実体験インタビューでじっくり話を聞きたい方、コミュニティのアーリーアクセスに興味がある方は、以下から申し込みできます。
+      </p>
+      <div class="waholii-contact-grid">
+        <article class="waholii-contact-card">
+          <div class="waholii-icon-circle waholii-icon-circle--orange">
+            <img
+              src="/waholii_interview_icon.svg"
+              alt="インタビュー アイコン"
+            />
+          </div>
+          <h3 class="waholii-card-title">Waholii インタビュー</h3>
+          <p class="waholii-card-text">
+            渡航前の不安や気になっていることを、ワーホリ経験者にじっくり質問できる 1 対 1 のインタビューです。
+            シドニー生活のリアルや、自分の計画に合わせたアドバイスを聞く場としてご利用いただけます。
+          </p>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSd-example-form/viewform"
+            target="_blank"
+            rel="noreferrer"
+            class="waholii-article-link"
+          >
+            インタビューに申し込む
+          </a>
+        </article>
+        <article class="waholii-contact-card">
+          <div class="waholii-icon-circle waholii-icon-circle--green">
+            <img
+              src="/waholii_community_icon.svg"
+              alt="コミュニティ アイコン"
+            />
+          </div>
+          <div class="waholii-contact-card-header">
+            <h3 class="waholii-card-title">Waholii コミュニティ</h3>
+            <span class="waholii-badge-muted">準備中</span>
+          </div>
+          <p class="waholii-card-text">
+            シドニーのワーホリ仲間と情報交換できるオンラインコミュニティを準備中です。
+            立ち上げのお知らせや募集開始の案内を受け取りたい方は、専用フォームからメールアドレスをご登録ください。
+          </p>
+          <a
+            href="https://forms.gle/your-community-form-id"
+            target="_blank"
+            rel="noreferrer"
+            class="waholii-article-link"
+          >
+            コミュニティの案内を受け取る
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

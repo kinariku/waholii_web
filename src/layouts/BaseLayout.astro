@@ -1,0 +1,83 @@
+---
+import "../styles/global.css";
+
+const {
+  current = "home",
+  title,
+  description,
+} = Astro.props as {
+  current?: "home" | "note" | "services" | "about" | "contact";
+  title?: string;
+  description?: string;
+};
+
+const siteName = "Waholii（ワホリイ）";
+const pageTitle = title ? `${title} | ${siteName}` : siteName;
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/waholii_icon_symbol_favicon.svg"
+    />
+    <title>{pageTitle}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body>
+    <div class="waholii-page-shell">
+      <header>
+        <div class="waholii-header-bar">
+          <span>現在ベータ版公開中 — Waholii の最新情報をお届けします</span>
+        </div>
+        <div class="waholii-nav-row">
+          <div class="waholii-nav-inner">
+            {/* ロゴ = Home */}
+            <a href="/" class="waholii-logo-mark" aria-label="Waholii Home">
+              <img
+                src="/waholii_logo_horizontal.svg"
+                alt="Waholii ロゴ"
+                width="200"
+                height="40"
+                loading="lazy"
+              />
+            </a>
+            {/* 右側にインタビュー申し込みボタンのみ */}
+            <div class="waholii-nav-right">
+              <a href="#contact" class="waholii-nav-cta">
+                インタビュー申し込み
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="waholii-main">
+        <div class="waholii-main-inner">
+          <slot />
+        </div>
+      </main>
+
+      <footer>
+        <div class="waholii-footer">
+          <div class="waholii-footer-inner">
+            <div class="waholii-footer-meta">
+              <img
+                src="/waholii_icon_full_dark.svg"
+                alt="Waholii ロゴ"
+                class="waholii-footer-logo"
+                loading="lazy"
+              />
+              <span class="waholii-footer-copy">
+                © {new Date().getFullYear()} Waholii
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
