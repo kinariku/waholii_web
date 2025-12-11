@@ -26,6 +26,20 @@ const pageTitle = title ? `${title} | ${siteName}` : siteName;
     />
     <title>{pageTitle}</title>
     {description && <meta name="description" content={description} />}
+    {/* OGP / SNS meta */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta
+      property="og:description"
+      content={
+        description ??
+        "オーストラリア・シドニーのワーホリ生活を、実体験ベースでやさしく解説するメディア。"
+      }
+    />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content="/hero_main_ogp.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/hero_main_ogp.svg" />
   </head>
   <body>
     <div class="waholii-page-shell">

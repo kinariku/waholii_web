@@ -11,12 +11,16 @@ const articles = await fetchNoteArticles(8);
   description="ワーホリ生活のスタート地点をつくる Waholii の公式サイト"
 >
   <section class="waholii-hero-full">
-    <img
-      src="/hero_main.svg"
-      alt="Waholii hero illustration"
-      class="waholii-hero-full-image"
-      loading="lazy"
-    />
+    <picture class="waholii-hero-full-picture">
+      {/* モバイル用ヒーロー画像（幅 500px 未満） */}
+      <source srcset="/hero_main_mobile.svg" media="(max-width: 500px)" />
+      <img
+        src="/hero_main.svg"
+        alt="Waholii hero illustration"
+        class="waholii-hero-full-image"
+        loading="lazy"
+      />
+    </picture>
   </section>
 
   <section id="articles" class="waholii-section">
