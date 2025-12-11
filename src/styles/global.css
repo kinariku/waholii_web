@@ -88,6 +88,20 @@ img {
   gap: 24px;
 }
 
+.waholii-logo-mark {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* デフォルト: デスクトップでは横長ロゴのみ表示 */
+.waholii-logo-horizontal {
+  display: block;
+}
+
+.waholii-logo-symbol {
+  display: none;
+}
+
 .waholii-nav-link {
   position: relative;
   color: #777777;
@@ -221,8 +235,8 @@ img {
 }
 
 .waholii-icon-circle img {
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   display: block;
 }
 
@@ -315,6 +329,19 @@ img {
 @media (max-width: 640px) {
   .waholii-article-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* モバイル時はヘッダーロゴをシンボルに切り替え */
+@media (max-width: 640px) {
+  .waholii-logo-horizontal {
+    display: none;
+  }
+
+  .waholii-logo-symbol {
+    display: block;
+    width: 40px;
+    height: auto;
   }
 }
 

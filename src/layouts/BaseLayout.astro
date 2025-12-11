@@ -51,12 +51,23 @@ const pageTitle = title ? `${title} | ${siteName}` : siteName;
           <div class="waholii-nav-inner">
             {/* ロゴ = Home */}
             <a href="/" class="waholii-logo-mark" aria-label="Waholii Home">
+              {/* Desktop / tablet: 横長ロゴ */}
               <img
                 src="/waholii_logo_horizontal.svg"
                 alt="Waholii ロゴ"
                 width="200"
                 height="40"
                 loading="lazy"
+                class="waholii-logo-horizontal"
+              />
+              {/* Mobile: シンボルロゴ */}
+              <img
+                src="/waholii_icon_symbol.svg"
+                alt="Waholii ロゴ シンボル"
+                width="40"
+                height="40"
+                loading="lazy"
+                class="waholii-logo-symbol"
               />
             </a>
             {/* 右側にインタビュー申し込みボタンのみ */}
