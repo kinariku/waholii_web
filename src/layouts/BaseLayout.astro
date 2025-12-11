@@ -13,6 +13,11 @@ const {
 
 const siteName = "Waholii（ワホリイ）";
 const pageTitle = title ? `${title} | ${siteName}` : siteName;
+const pageDescription =
+  description ??
+  "オーストラリア・シドニーのワーホリ生活を、実体験ベースでやさしく解説するメディア。";
+// OGP用画像（PNG推奨: 1200x630）
+const ogImageUrl = new URL("/hero_main_ogp.png", Astro.url).href;
 ---
 
 <html lang="ja">
@@ -25,21 +30,15 @@ const pageTitle = title ? `${title} | ${siteName}` : siteName;
       href="/waholii_icon_symbol_favicon.svg"
     />
     <title>{pageTitle}</title>
-    {description && <meta name="description" content={description} />}
+    <meta name="description" content={pageDescription} />
     {/* OGP / SNS meta */}
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
-    <meta
-      property="og:description"
-      content={
-        description ??
-        "オーストラリア・シドニーのワーホリ生活を、実体験ベースでやさしく解説するメディア。"
-      }
-    />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content="/hero_main_ogp.svg" />
+    <meta property="og:image" content={ogImageUrl} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="/hero_main_ogp.svg" />
+    <meta name="twitter:image" content={ogImageUrl} />
   </head>
   <body>
     <div class="waholii-page-shell">
